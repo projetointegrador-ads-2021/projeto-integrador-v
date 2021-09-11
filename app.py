@@ -15,7 +15,7 @@ api = Api(app)
 class GetAll(Resource):
     def get(self):
         cursor = app.classes.conn.cursor(dictionary=True, buffered=True)
-        query = 'select * from tb_marca'
+        query = 'select * from tb_marca_veiculo'
         cursor.execute(query)
         rows = cursor.fetchall()
         json_data=[]
@@ -28,7 +28,7 @@ class Insert(Resource):
         data = request.get_json(force=True)
         try:
             cursor = app.classes.conn.cursor()
-            sql = 'insert into tb_marca (nome_marca) values ("' + data['nome_marca'] + '")'
+            sql = 'insert into tb_marca_veiculo (nome_marca_veiculo) values ("' + data['nome_marca_veiculo'] + '")'
             cursor.execute(sql)
             app.classes.conn.commit()
             return json.dumps({'status': 'success', 'message': 'Marca inserida com sucesso!'})
@@ -40,7 +40,7 @@ class Update(Resource):
         data = request.get_json(force=True)
         try:
             cursor = app.classes.conn.cursor()
-            sql = 'update tb_marca set nome_marca = "' + data['nome_marca'] + '" where cod_marca = ' + data['cod_marca'] + ''
+            sql = 'update tb_marca_veiculo set nome_marca_veiculo = "' + data['nome_marca_veiculo'] + '" where cod_marca_veiculo = ' + data['cod_marca_veiculo'] + ''
             cursor.execute(sql)            
             app.classes.conn.commit()
             return json.dumps({'status': 'success', 'message': 'Marca alterada com sucesso!'})
@@ -52,7 +52,7 @@ class Delete(Resource):
         data = request.get_json(force=True)
         try:
             cursor = app.classes.conn.cursor()
-            sql = 'delete from tb_marca where cod_marca = ' + data['cod_marca'] + ''
+            sql = 'delete from tb_marca_veiculo where cod_marca_veiculo = ' + data['cod_marca_veiculo'] + ''
             cursor.execute(sql)            
             app.classes.conn.commit()
             return json.dumps({'status': 'success', 'message': 'Marca excluida com sucesso!'})
