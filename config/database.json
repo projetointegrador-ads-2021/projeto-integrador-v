@@ -1,0 +1,23 @@
+{
+   "production":{
+       "host":"",
+       "port":"",
+       "user":"",
+       "pass":"",
+       "database":""
+   },
+   "development":{
+       "host":"localhost",
+       "port":3306,
+       "user":"root",
+       "pass":"adm2020",
+       "database":"projeto_integrador_v"
+   },
+   "testing":{
+       "host":"",
+       "port":"",
+       "user":"",
+       "pass":"",
+       "database":""
+   }
+}
